@@ -1,0 +1,118 @@
+﻿@using Microsoft.Cognitive.CustomVision.Models;
+@using WebApplication3.Models;
+
+@model PredictionViewModel
+@{
+    ViewBag.Title = "Prediction";
+}
+
+<h2>Prediction</h2>
+
+@using (Html.BeginForm("Index", "Prediction", FormMethod.Post, new { @id = "frmPrediction", @enctype = "multipart/form-data" }))
+{
+    <table width="1060" border="0" cellpadding="0" cellspacing="0">
+        <tr valign="top">
+            <td width="60%">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <input type="file" name="ImageFile" />
+                        </td>
+                        <td align="center">
+                            <input type="submit" id="Predict" name="Predict" value="Predict" onclick="$('#processing').text('Processing...');" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            @if (Model != null && Model.PredictionResult != null && Model.PredictionResult.Predictions != null)
+                            {
+                                <br /><br />
+                                <style>
+                                    table#tblPredictionResult {
+                                        border-collapse: collapse;
+                                        width: 100%;
+                                    }
+
+                                        table#tblPredictionResult th, table#tblPredictionResult td {
+                                            text-align: left;
+                                            padding: 8px;
+                                        }
+
+                                        table#tblPredictionResult tr:nth-child(even) {
+                                            background-color: #f2f2f2
+                                        }
+
+                                        table#tblPredictionResult th {
+                                            background-color: #4CAF50;
+                                            color: white;
+                                        }
+                                </style>
+
+                                <table id="tblPredictionResult">
+                                    <tr valign="top">
+                                        <th>tag</th>
+                                        <th>percentage</th>
+                                    </tr>
+                                    @foreach (ImageTagPrediction prediction in Model.PredictionResult.Predictions)
+                                    {
+                                        <tr valign="top">
+                                            <td> @prediction.Tag</td>
+                                            <td> @(Math.Round((prediction.Probability * 100), 2))</td>
+                                        </tr>
+                                    }
+                                </table>
+                                <br /><br />
+                                <div>
+                                    Images with tags matching more than or equal to @System.Configuration.ConfigurationManager.AppSettings["MinimumPredictionPercentage"] prediction percentage
+                                    will be shown below.
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="40%" align="right">
+                @if (Model != null && Model.PredictionResult != null && Model.PredictionResult.Predictions != null)
+                {
+                    <img src="data:@Model.PredictionImageContentType;base64,@Model.PredictionImageBase64String" width="300"><br />
+                }
+                else
+                {
+                    @:&nbsp;
+                }
+                <br />
+            </td>
+        </tr>
+    </table>
+    <div id="processing"></div>
+}
+@if (Model != null && Model.Images != null && Model.Images.Count() > 0)
+{
+    <table border="2" sstyle="border: 1px solid black;" cellpadding="5" cellspacing="5">
+        <tr valign="middle">
+            @{
+                int i = 0;
+            }
+            @for (i = 0; i < Model.Images.Count(); i++)
+            {
+                <td>
+                    <img src="~/ImageFiles/@Model.Images.ElementAt(i).Filename" width="350" /><br />
+                </td>
+                if ((i + 1) % 3 == 0)
+                {
+                    @:</tr>
+                        @:<tr valign="middle">
+                    }
+            }
+
+
+            @if (i % 3 != 0)
+            {
+                for (int reminder = 1; reminder <= (3- (i % 3)); reminder++)
+                {
+                    <td>&nbsp;</td>
+                }
+            }
+        </tr>
+    </table>
+}
