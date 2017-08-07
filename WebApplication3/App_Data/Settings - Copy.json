@@ -1,0 +1,32 @@
+{
+  "RASANLPUrl": "http://ipaddress/parse",
+  "MaxHeightOrWidth": 500,
+  "MinimumPredictionPercentage": 60,
+  "ApplyDummyPredictions": false,
+  "DummyPredictions": [
+    {
+      "Key": "Plain",
+      "Value": 0.10
+    },
+    {
+      "Key": "Printed",
+      "Value": 0.80
+    },
+    {
+      "Key": "Full",
+      "Value": 0.90
+    },
+    {
+      "Key": "Half",
+      "Value": 0.10
+    },
+    {
+      "Key": "Round",
+      "Value": 0.10
+    },
+    {
+      "Key": "Collar",
+      "Value": 0.90
+    }
+  ]
+}

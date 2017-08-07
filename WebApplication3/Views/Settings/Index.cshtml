@@ -1,0 +1,98 @@
+﻿@using WebApplication3.Models
+
+@{
+    ViewBag.Title = "Settings";
+}
+
+<h2>Settings</h2>
+
+<h3>@TempData["Message"]</h3>
+
+
+@using (Html.BeginForm("Index", "Settings", FormMethod.Post, new { @id = "frmSettings" }))
+{
+    <table border="0" cellpadding="5" cellspacing="5">
+        <tr valign="middle">
+            <td>
+                RASA NLP Url:
+            </td>
+            <td>
+                <input type="text" name="RASANLPUrl" value="@Settings.RASANLPUrl" size="40" />
+            </td>
+        </tr>
+        <tr valign="middle">
+            <td>
+                Apply Dummy Voice:
+            </td>
+            <td>
+                <input type="checkbox" @(Settings.ApplyDummyVoice ? " checked" : "") onchange="$('#ApplyDummyVoice').val(this.checked);" />
+                <input type="hidden" id="ApplyDummyVoice" name="ApplyDummyVoice" value="@(Settings.ApplyDummyVoice ? "true" : "false")" />
+            </td>
+        </tr>
+        <tr valign="middle">
+            <td>
+                Dummy Voice:
+            </td>
+            <td>
+                <input type="text" name="DummyVoice" value="@Settings.DummyVoice" size="40" />
+            </td>
+        </tr>
+        <tr valign="middle">
+            <td>
+                Apply Dummy RASA NLP:
+            </td>
+            <td>
+                <input type="checkbox" @(Settings.ApplyDummyRASANLP ? " checked" : "") onchange="$('#ApplyDummyRASANLP').val(this.checked);" />
+                <input type="hidden" id="ApplyDummyRASANLP" name="ApplyDummyRASANLP" value="@(Settings.ApplyDummyRASANLP ? "true" : "false")" />
+            </td>
+        </tr>
+        <tr valign="middle">
+            <td>
+                Dummy RASA NLP Intent:
+            </td>
+            <td>
+                <input type="text" name="DummyRASANLPIntent" value="@Settings.DummyRASANLPIntent" size="40" />
+            </td>
+        </tr>
+        <tr valign="middle">
+            <td>
+                Dummy RASA NLP Entities:
+            </td>
+            <td>
+                <input type="text" name="DummyRASANLPEntities" value="@Settings.DummyRASANLPEntities" size="40" />
+            </td>
+        </tr>
+        <tr valign="middle">
+            <td>
+                Browse Image Max Height/Width:
+            </td>
+            <td>
+                <input type="text" name="MaxHeightOrWidth" value="@Settings.MaxHeightOrWidth" size="40" />
+            </td>
+        </tr>
+        <tr valign="middle">
+            <td>
+                Minimum Prediction Percentage:
+            </td>
+            <td>
+                <input type="text" name="MinimumPredictionPercentage" value="@Settings.MinimumPredictionPercentage" size="40" />
+            </td>
+        </tr>
+        <tr valign="middle">
+            <td>
+                Apply Dummy Predictions:
+            </td>
+            <td>
+                <input type="checkbox" @(Settings.ApplyDummyPredictions ? " checked" : "") onchange="$('#ApplyDummyPredictions').val(this.checked);" />
+                <input type="hidden" id="ApplyDummyPredictions" name="ApplyDummyPredictions" value="@(Settings.ApplyDummyPredictions ? "true" : "false")" />
+            </td>
+        </tr>
+        <tr valign="top">
+            <td colspan="2" align="center">
+                <br />
+                <input type="submit" value="Submit" />
+            </td>
+        </tr>
+    </table>
+    
+}

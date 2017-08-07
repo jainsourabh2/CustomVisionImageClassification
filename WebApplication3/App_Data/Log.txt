@@ -1,0 +1,4 @@
+﻿8/4/2017 5:17:48 PM: EndPoint: http://34.212.42.52:5000/parse8/4/2017 5:17:48 PM: Method: POST8/4/2017 5:17:48 PM: PostData: {"q":"thing in print"}8/4/2017 5:21:51 PM: EndPoint: http://34.212.42.52:5000/parse
+8/4/2017 5:21:51 PM: Method: POST
+8/4/2017 5:21:51 PM: PostData: {"q":"thing in print"}
+8/4/2017 6:09:21 PM: thing in print<br /><br />8/4/2017 6:09:21 PM: Calling GetImagesByVoice.<br /><br />8/4/2017 6:09:21 PM: Forming voiceTags.<br /><br />8/4/2017 6:09:21 PM: Checking ApplyDummyRASANLP<br /><br />8/4/2017 6:09:21 PM: True<br /><br />8/4/2017 6:09:21 PM: Inside dummy rasa nlp<br /><br />

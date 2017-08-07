@@ -15,9 +15,7 @@ namespace WebApplication3.Controllers
         {
             IList<Image> images = new List<Image>();
 
-            string jsonString = System.IO.File.ReadAllText(Server.MapPath(@"~\App_Data\ImageDB.json"));
-
-            List<Image> dbImages = (List<Image>)Newtonsoft.Json.JsonConvert.DeserializeObject(jsonString, typeof(List<Image>));
+            IList<Image> dbImages = Image.GetImagesFromDB();
 
             string[] filenames = Directory.GetFiles(Server.MapPath(@"~\ImageFiles"));
 
@@ -27,13 +25,13 @@ namespace WebApplication3.Controllers
                 images.Add(new Image() { Filename = Path.GetFileName(fn), Tags = (image == null ? 0 : image.Tags) });
             });
 
-            return View(images);
+            return View(images.OrderBy(image => image.Tags));
         }
 
         [HttpPost]
         public ActionResult Index(List<Image> images)
         {
-            System.IO.File.WriteAllText(Server.MapPath(@"~\App_Data\ImageDB.json"), JsonConvert.SerializeObject(images));
+            Image.SaveImagestoDB(images);
 
             TempData["Message"] = "Updated successfully!";
             return RedirectToAction("Index");

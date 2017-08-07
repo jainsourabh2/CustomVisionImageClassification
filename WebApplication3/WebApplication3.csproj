@@ -15,7 +15,7 @@
     <RootNamespace>WebApplication3</RootNamespace>
     <AssemblyName>WebApplication3</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Excel, Version=2.1.2.3, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.2.1.2.3\lib\net45\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -65,6 +71,9 @@
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.Http.4.3.1\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Runtime.Serialization" />
@@ -89,6 +98,12 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -96,6 +111,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -121,7 +139,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ImageDB.xml" />
+    <Content Include="App_Data\Log.txt" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Jcrop.gif" />
@@ -159,9 +177,33 @@
     <Content Include="ImageFiles\11496318801341-Being-Human-Men-Tshirts-3131496318801004-1.jpg" />
     <Content Include="ImageFiles\11496915726644-ether-Men-Tshirts-7901496915726489-1.jpg" />
     <Content Include="ImageFiles\11496985467718-Puma-Men-Tshirts-9731496985467487-1.jpg" />
+    <Content Include="ImageFiles\41GTfa0uuLL._AC_UL260_SR200,260_.jpg" />
+    <Content Include="ImageFiles\51cTqzc7B7L._AC_UL260_SR200,260_.jpg" />
+    <Content Include="ImageFiles\Call Of Duty %284837260%29 Grey Printed Round Neck T-Shirt CA647MA74HOBINDFAS Grey.jpg" />
+    <Content Include="ImageFiles\CT11121025_M_1_2x-98784.jpg" />
+    <Content Include="ImageFiles\download.jpg" />
+    <Content Include="ImageFiles\full-sleeve-shirts-250x250.jpg" />
+    <Content Include="ImageFiles\images %281%29.jpg" />
+    <Content Include="ImageFiles\images %282%29.jpg" />
+    <Content Include="ImageFiles\images %283%29.jpg" />
+    <Content Include="ImageFiles\images %284%29.jpg" />
+    <Content Include="ImageFiles\images %285%29.jpg" />
+    <Content Include="ImageFiles\images %286%29.jpg" />
+    <Content Include="ImageFiles\images %287%29.jpg" />
+    <Content Include="ImageFiles\IMG_3903_3.JPG" />
+    <Content Include="ImageFiles\img_4613-1_1.jpg" />
+    <Content Include="ImageFiles\men-s-full-sleeve-t-shirt-250x250.jpg" />
+    <Content Include="ImageFiles\mens-full-sleeve-250x250.jpg" />
+    <Content Include="ImageFiles\RC87 9  %28F%29-420x560.jpg" />
+    <Content Include="ImageFiles\sg011b492fz3.jpg" />
+    <Content Include="Images\ajax-loader.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Data\ImageDB.json" />
+    <Content Include="App_Data\Tag.json" />
+    <Content Include="App_Data\Settings.json" />
+    <Content Include="App_Data\Settings - Copy.json" />
+    <Content Include="App_Data\ImageDB - Copy.json" />
     <None Include="Properties\PublishProfiles\CustomVisionPoC - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -175,16 +217,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\LogDisplayController.cs" />
     <Compile Include="Controllers\PredictController.cs" />
-    <Compile Include="Controllers\PredictionController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\TagImagesController.cs" />
-    <Compile Include="Enums\Tag.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Log.cs" />
+    <Compile Include="Helper\RestClient.cs" />
+    <Compile Include="Models\DummyPrediction.cs" />
     <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\Prediction.cs" />
     <Compile Include="Models\PredictionViewModel.cs" />
     <Compile Include="Models\PredictRequest.cs" />
+    <Compile Include="Models\Settings.cs" />
+    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\VoiceResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -192,13 +241,14 @@
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Prediction\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\TagImages\Index.cshtml" />
     <Content Include="Views\Predict\Index.cshtml" />
+    <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\LogDisplay\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -222,7 +272,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60820</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:60820/</IISUrl>
+          <IISUrl>http://localhost/WebApplication3</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

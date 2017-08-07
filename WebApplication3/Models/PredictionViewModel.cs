@@ -7,20 +7,41 @@ namespace WebApplication3.Models
 {
     public class PredictionViewModel
     {
-        private ImagePredictionResultModel _predictionResult;
+        private IList<Prediction> _predictions;
+        private IList<Tag> _strongTags;
         private IList<Image> _images;
         private string _predictionImageBase64String;
         private string _predictionImageContentType;
         
-        public ImagePredictionResultModel PredictionResult
+        public IList<Prediction> Predictions
         {
             get
             {
-                return _predictionResult;
+                return _predictions;
             }
             set
             {
-                _predictionResult = value;
+                _predictions = value;
+            }
+        }
+
+        public IList<Tag> StrongTags
+        {
+            get
+            {
+                return _strongTags;
+            }
+            set
+            {
+                _strongTags = value;
+            }
+        }
+
+        public string StrongTagStrings
+        {
+            get
+            {
+                return _strongTags.GetStrings();
             }
         }
 
@@ -64,7 +85,7 @@ namespace WebApplication3.Models
         {
             get
             {
-                return System.Configuration.ConfigurationManager.AppSettings["MinimumPredictionPercentage"];
+                return Settings.MinimumPredictionPercentage.ToString();
             }
         }
     }

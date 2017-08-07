@@ -1,0 +1,38 @@
+[
+  {
+    "ID": 1,
+    "Category": "Pattern",
+    "Name" :  "Plain",
+    "MapString": "Plain"
+  },
+  {
+    "ID": 2,
+    "Category": "Pattern",
+    "Name": "Print",
+    "MapString": "Printed"
+  },
+  {
+    "ID": 4,
+    "Category": "Sleeve",
+    "Name": "Half",
+    "MapString": "half"
+  },
+  {
+    "ID": 8,
+    "Category": "Sleeve",
+    "Name": "Full",
+    "MapString": "fulls"
+  },
+  {
+    "ID": 16,
+    "Category": "Neck",
+    "Name": "Round",
+    "MapString": "round"
+  },
+  {
+    "ID": 32,
+    "Category": "Neck",
+    "Name": "Collar",
+    "MapString": "collar"
+  }
+]
