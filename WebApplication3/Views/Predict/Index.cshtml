@@ -80,7 +80,76 @@
         </table>
         <br />
         <input type='hidden' name='strongTagStrings' id='strongTagStrings' />
-        <div id='StrongTagsDiv'></div>
+        <table border="0" cellspacing="0" cellpadding="0">
+            <tr valign="middle">
+                <td>
+                    <div id='StrongTagsDiv'></div>
+                </td>
+                <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                <td>
+                    <style>
+                        /*start of mic*/
+                        .gn{
+                          position:relative;
+                          margin: 5% auto;
+                          background-color:#222;
+                          border-radius:50%;
+                          width:3em; height:3em;
+                        }
+                        :before, :after{
+                          content:'';
+                          position:absolute;
+                          background-color: #dddddd;
+                        }
+                        .gn:after{
+                          top:30%; left:43%;
+                          height:15%; width:14%;
+                          border-top-left-radius:50%;
+                          border-top-right-radius:50%;
+                        }
+                        .gn:before{
+                          top:40%; left:43%;
+                          height:15%; width:14%;
+                          border-bottom-left-radius:50%;
+                          border-bottom-right-radius:50%;
+                        }
+                        .gn:hover:after{
+                          background-color: #fff;
+                        }
+                        .gn:hover:before{
+                          background-color: #fff;
+                        }
+                        .mc{
+                          position:absolute;
+                          top:50%; left:37%;
+                          height:24%;
+                          width:26.5%;
+                          overflow:hidden;
+                        }
+                        .mc:before{
+                          bottom:50%;
+                          width:100%; height:100%;
+                          box-sizing:border-box;
+                          border-radius:50%;
+                          border:0.1em solid #dddddd;
+                          background:none;
+                        }
+                        .mc:after{
+                          top:50%; left:40%;
+                          width:20%; height:25%;
+                        }
+                        .mc:hover:before{
+                        border:0.1em solid #fff;
+                        }
+                        /*end of mic*/
+                    </style>
+                    <div id='micDiv'></div>
+                </td>
+            </tr>
+        </table>
+        <br />
         <input type='hidden' name='voice' id='voice' />
         <div id='VoiceRecognitionDiv'></div>
         <div id="DummyVoiceDiv"></div>
@@ -184,7 +253,7 @@
     function HandleVoice_Success(data, status, xhr) {
         $("#Predict").prop("disabled", false);
         $("#minimumPredictionPercentage").prop("disabled", false);
-        startVoiceRecognition();
+        //startVoiceRecognition(); change 20171012
 
         if (data.ChangeInventory) {
             if (status == "success" && xhr.status == 200) {
@@ -201,7 +270,7 @@
     function HandleVoice_Failure(xhr, status, error) {
         $("#Predict").prop("disabled", false);
         $("#minimumPredictionPercentage").prop("disabled", false);
-        startVoiceRecognition();
+        //startVoiceRecognition(); change 20171012
 
         displaySingleLineMessageInInventory(error);
     }
@@ -218,7 +287,7 @@
 
             displayInventory(data);
 
-            startVoiceRecognition();
+            //startVoiceRecognition(); change 20171012
         }
         else {
             displayError("Error occurred.");
@@ -256,6 +325,7 @@
     function displayInventory(data) {
         $("#strongTagStrings").val("");
         $("#StrongTagsDiv").html("");
+        $("#micDiv").html("<a href='javascript:startVoiceRecognition()'><div class='gn'><i class='mc'></i></div></a>");
 
         if (data.StrongTagStrings.length > 0) {
             $("#strongTagStrings").val(data.StrongTagStrings);
