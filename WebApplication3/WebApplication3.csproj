@@ -197,6 +197,11 @@
     <Content Include="ImageFiles\RC87 9  %28F%29-420x560.jpg" />
     <Content Include="ImageFiles\sg011b492fz3.jpg" />
     <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\cbu.png" />
+    <Content Include="Images\cbc.png" />
+    <Content Include="Images\demo_pic.png" />
+    <Content Include="Images\icon_mick.png" />
+    <Content Include="one.htm" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Data\ImageDB.json" />
@@ -213,6 +218,7 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="two.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -249,6 +255,7 @@
     <Content Include="Views\Predict\Index.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\LogDisplay\Index.cshtml" />
+    <Content Include="Views\Predict\Indexcopy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

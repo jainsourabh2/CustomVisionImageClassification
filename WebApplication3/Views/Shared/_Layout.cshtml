@@ -11,33 +11,110 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     @RenderSection("OptionalScript", false)
+
+    <style>
+        .navbar-inverse {
+            background-color: #4eaaff !important;
+            border-color: #4eaaff !important;
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            overflow-y: scroll;
+        }
+
+        .flexbox-parent {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* align items in Main Axis */
+            align-items: stretch; /* align items in Cross Axis */
+            align-content: stretch; /* Extra space in Cross Axis */
+            background-color: #fff;
+        }
+
+        .flexbox-item {
+            padding: 8px;
+        }
+
+        .flexbox-item-grow {
+            flex: 1; /* same as flex: 1 1 auto; */
+        }
+
+        /*.flexbox-item.header {
+            background: rgba(255, 0, 0, .1);
+        }*/
+
+        .flexbox-item.footer {
+            background-color: #76BAF9;
+            color: #fff;
+        }
+
+        .flexbox-item.content {
+            background: #F2F2F2;
+        }
+
+        .fill-area {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start; /* align items in Main Axis */
+            align-items: stretch; /* align items in Cross Axis */
+            align-content: stretch; /* Extra space in Cross Axis */
+        }
+
+        .fill-area-content {
+            background: #fff;
+            border: 0px solid #fff;
+            /* Needed for when the area gets squished too far and there is content that can't be displayed */
+            overflow: auto;
+        }
+    </style>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Prediction", "Index", "Predict", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Tag Images", "Index", "TagImages", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Settings", "Index", "Settings", new { area = "" }, new { @class = "navbar-brand" })
+    <div style="display: flex; flex-direction: column; justify-content:flex-start; width: 100%; min-height:100%;">
+        <div class="navbar navbar-inverse" style="margin: 0px; border-radius: 0px;">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        @Html.ActionLink("Prediction", "Index", "Predict", new { area = "" }, new { @class = "navbar-brand" })
+                        @Html.ActionLink("Tag Images", "Index", "TagImages", new { area = "" }, new { @class = "navbar-brand" })
+                        @Html.ActionLink("Settings", "Index", "Settings", new { area = "" }, new { @class = "navbar-brand" })
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
+        </div>
+        <div style="flex-grow: 1; display:flex; flex-direction: row; ">
+            <div style="background-color: #F2F2F2; min-width: 8%;">&nbsp;</div>
+            <div style="background-color: #fff; min-width: 3%;">&nbsp;</div>
+            <div style="flex-grow:1; display:flex; flex-direction: column; ">
+                @RenderBody()
+            </div>
+            <div style="background-color: #fff;  min-width: 3%;">&nbsp;</div>
+            <div style="background-color: #F2F2F2;  min-width: 8%;">&nbsp;</div>
+        </div>
+        <div class="footer">
+            <div class="text-center" style="background-color: #76baf9; color: #fff; padding: 10px">
+                <span>&copy; @DateTime.Now.Year - Custom Vision PoC</span>
             </div>
         </div>
     </div>
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Custom Vision PoC</p>
-        </footer>
-    </div>
-
 </body>
 </html>

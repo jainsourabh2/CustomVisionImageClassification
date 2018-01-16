@@ -34,7 +34,7 @@
     }
 </script>
 
-
+<div style="overflow:auto">
 @using (Html.BeginForm("Index", "TagImages", FormMethod.Post, new { @id = "frmTagImages" }))
 {
     <table border="2" sstyle="border: 1px solid black;" cellpadding="5" cellspacing="5">
@@ -95,6 +95,7 @@
         </tr>
     </table>
 }
+    </div>
 
 @functions 
 {

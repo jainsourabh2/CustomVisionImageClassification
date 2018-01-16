@@ -105,11 +105,6 @@ namespace WebApplication3.Controllers
 
                 using (FileStream fileStream = new FileStream(filename, FileMode.Open, FileAccess.Read))
                 {
-                    var predictionKey = "61923266b04e4173b6ff56c7bb2804bf";
-                    var projectID = "141bef78-2d42-45dc-9687-0d3b12ed702a";
-
-                    PredictionEndpointCredentials predictionEndpointCredentials = new PredictionEndpointCredentials(predictionKey);
-                    PredictionEndpoint endpoint = new PredictionEndpoint(predictionEndpointCredentials);
 
                     if (Settings.ApplyDummyPredictions)
                     {
@@ -117,6 +112,12 @@ namespace WebApplication3.Controllers
                     }
                     else
                     {
+                        var predictionKey = "61923266b04e4173b6ff56c7bb2804bf";
+                        var projectID = "141bef78-2d42-45dc-9687-0d3b12ed702a";
+
+                        PredictionEndpointCredentials predictionEndpointCredentials = new PredictionEndpointCredentials(predictionKey);
+                        PredictionEndpoint endpoint = new PredictionEndpoint(predictionEndpointCredentials);
+
                         modelData.Predictions = GetPredictions(endpoint.PredictImage(Guid.Parse(projectID), fileStream));
                     }
 
